@@ -1,0 +1,48 @@
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.page-header,
+.page-footer {
+  flex: none;
+  padding: $base-spacing;
+}
+.page-content {
+  flex: 1 0 auto;
+  padding: $base-spacing;
+  & > .wrap {
+    display: flex;
+  }
+}
+.page-main {}
+.page-aside{}
+
+.page-header {
+  background-color: $gray-lighter;
+}
+.page-footer {
+  background-color: $gray-darker;
+  color: #fff;
+}
+.page-header,
+.page-content,
+.page-footer {
+  > .wrap {
+    margin: 0 auto;
+    max-width: 960px;
+  }
+}
+
+.page-main {
+  width: 70%;
+  flex-grow: 0;
+}
+.page-aside{
+  width: 30%;
+  flex-shrink: 0;
+  margin-left: 2 * $base-spacing;
+}

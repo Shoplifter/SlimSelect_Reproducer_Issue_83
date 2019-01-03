@@ -1,0 +1,102 @@
+/**
+* @see http://jsfiddle.net/raving/87865bq7/
+*/
+.has-tooltip {
+	position: relative;
+	cursor: pointer;
+	& .tooltip {
+		background: $gray-darker;
+		background: rgba($gray-darker, 0.85);
+		color: #fff;
+		font-family: $base-font-family;
+		line-height: $base-line-height;
+		font-size: 1rem;
+		font-weight: normal;
+		display: block;
+		white-space: nowrap;
+		//width: (320 - 2 * 14) * 1px;
+		right: 100%; /* position */
+		top: -$base-spacing/2;
+		//left: auto;
+		//bottom: auto;
+		margin-bottom: 15px;
+		margin-right: 10px;
+		opacity: 0;
+		padding: $small-spacing;
+		pointer-events: none;
+		position: absolute;
+		z-index: 2;
+		transform: translateX(10px);
+		transition: all .25s ease-out;
+		box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+
+		/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+		&:before {
+			content: " ";
+			display: block;
+			position: absolute;
+			bottom: 0;
+			width: $small-spacing;
+			height: 100%;
+			left: 100%;
+			//background-color: #fc0;
+		}
+		/* arrow */
+		&:after {
+			border-top: solid transparent 10px;
+			border-bottom: solid transparent 10px;
+			border-left: solid $gray-darker 10px;
+			border-right: 0;
+			bottom: auto;
+			content: " ";
+			height: 0;
+			right: -10px;
+			top: $base-spacing/2;
+			position: absolute;
+			width: 0;
+		}
+	}
+	&.tooltip-left .tooltip {
+		//right: 100%;
+		left: auto;
+		top: -$base-spacing/2;
+		bottom: auto;
+		margin-right: 10px;
+		transform: translateX(10px);
+		&:after {
+			border-top: solid transparent 10px;
+			border-bottom: solid transparent 10px;
+			border-left: solid $gray-darker 10px;
+			border-right: 0;
+			bottom: auto;
+			right: -10px;
+			top: $base-spacing/2;
+		}
+		&:before {
+			bottom: 0;
+			width: $small-spacing;
+			height: 100%;
+			left: 100%;
+		}
+	}
+}
+.has-tooltip {
+	overflow: hidden;
+	&:hover {
+		overflow: visible;
+		& .tooltip {
+			opacity: 1;
+			//pointer-events: auto;
+			transform: translateY(0px);
+		}
+	}
+}
+.touch .has-tooltip {
+	&._hover {
+		& .tooltip {
+			opacity: 1;
+			pointer-events: auto;
+			transform: translateY(0px);
+		}
+	}
+}

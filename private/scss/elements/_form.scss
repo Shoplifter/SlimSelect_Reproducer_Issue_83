@@ -1,0 +1,23 @@
+label {
+  display: block;
+  color: $gray-dark;
+}
+input, select {
+  width: 100%;
+  font-size: 1.5em;
+  padding: 0.25em;
+  border: 0;
+  border-bottom: 1px solid $gray;
+  outline: 0;
+  background-color: tint($gray-lighter, 50%);
+  &:focus {
+    border-bottom-color: $gray-dark;
+  }
+}
+.f-footer {
+  margin-top: $base-spacing;
+  text-align: right;
+}
+fieldset > div {
+  margin-bottom: $small-spacing;
+}

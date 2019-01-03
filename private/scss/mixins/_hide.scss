@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+@mixin hide {
+	display: none !important;
+	visibility: hidden;
+}

@@ -1,0 +1,26 @@
+body {
+  font: 100%/$base-line-height $base-font-family;
+  color: $base-font-color;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+a {
+  text-decoration: none;
+  color: $link-color;
+  transition: color $base-duration $base-timing, background-color $base-duration $base-timing;
+  &:hover, &:focus, &:active {
+    color: $link-hover-color;
+  }
+}
+h1,h2,h3,h4,h5,h6 {
+  font-size: 1em;
+  margin: 0;
+}

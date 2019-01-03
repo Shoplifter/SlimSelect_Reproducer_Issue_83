@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="no-touch no-js">
+    <head>
+        <meta charset="UTF-8">
+        <title>Slim Select Bug Reproducer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="src/app.css" rel="stylesheet" />
+        <script src="src/init.js"></script>
+    </head>
+    <body>
+        <header class="page-header">
+            <div class="wrap">
+                <h1>Reproducer Issues <a href="https://github.com/brianvoe/slim-select/issues/89" target="_blank" rel="noreferrer">#89</a></h1>
+            </div>
+        </header>
+        <div class="page-content">
+            <div class="wrap">
+                <main class="page-main">
+                    <form action="submit.php" method="post">
+                        <fieldset>
+                            <div class="f-row">
+                                <label for="slim-no-ajax">without AJAX</label>
+                                <select id="slim-no-ajax" name="Submit[no-ajax][]" multiple>
+                                    <option value="1" selected data-badge="AT">CT</option>
+                                    <option value="2" data-badge="HU">CT A</option>
+                                    <option value="3" data-badge="CZ">CT B</option>
+                                    <option value="4" data-badge="PL">CT C</option>
+                                    <option value="5" data-badge="HR">CT D</option>
+                                </select>
+                            </div>
+                            <div class="f-row">
+                                <label for="slim-ajax">with AJAX</label>
+                                <select id="slim-ajax" name="Submit[ajax][]" multiple>
+                                    <option value="1" selected data-badge="AT">CT</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                        <footer class="f-footer">
+                            <button class="btn" type="submit">submit</button>
+                        </footer>
+                    </form>
+                </main>
+            </div>
+        </div>
+        <footer class="page-footer">
+            <div class="wrap">
+                <h4>How to reproduce:</h4>
+                <ol>
+                    <li>Initially <code>without AJAX</code> and <code>with AJAX</code> <em>should</em> look the same, but preselected options in <code>with AJAX</code> do not show up.</li>
+                    <li>Focus <code>with AJAX</code> and search for <code>CT</code> - the preselected option shows up, but without badge</li>
+                    <li>Select <code>CT B</code> (or any other option) - the new selected option shows up with badge</li>
+                    <li>Press <code>submit</code></li>
+                    <li>The value for <code>CT</code> (<code>1</code>) is submitted <em>twice</em>.</li>
+                    <li>Refresh page - do nothing - just <code>submit</code> - The value for <code>CT</code> (<code>1</code>) is submitted <em>twice</em>.</li>
+                    <li>Refresh page - search for <code>CT</code> - do or do not select <code>CT</code> - <code>submit</code> - The value for <code>CT</code> (<code>1</code>) is (correctly) submitted <em>only once</em>.</li>
+                </ol>
+            </div>
+        </footer>
+    </body>
+</html>

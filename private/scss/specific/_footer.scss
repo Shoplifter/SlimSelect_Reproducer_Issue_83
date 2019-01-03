@@ -1,0 +1,16 @@
+.page-footer {
+  & a {
+    color: $gray-light;
+    text-decoration: underline;
+    &:hover, &:focus, &:active {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  & code {
+    color: $gray-light;
+  }
+  & li {
+    margin-bottom: $small-spacing;
+  }
+}

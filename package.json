@@ -1,0 +1,37 @@
+{
+  "name": "slim-select.reproducer",
+  "version": "1.0.0",
+  "description": "builder",
+  "main": "index.js",
+  "config": {
+    "sassIncludePaths": " --include-path node_modules/bourbon/core --include-path node_modules/susy/sass"
+  },
+  "scripts": {
+    "css:src": "node-sass private/scss/ -o src %npm_package_config_sassIncludePaths% --source-map=true",
+    "css:prefix": "postcss src/*.css --use autoprefixer --replace",
+    "css:min": "postcss src/*.css -u cssnano -d min --no-map",
+    "css": "npm-run-all -s css:src css:prefix css:min",
+    "js:init": "browserify private/js/init.js -o src/init.js -d ",
+    "js:app": "browserify private/js/app.js -o src/app.js -d ",
+    "js": "npm-run-all js:*",
+    "min:init": "uglifyjs src/init.js -c -m -o min/init.js",
+    "min:app": "uglifyjs src/app.js -c -m -o min/app.js",
+    "min": "npm-run-all -p min:*",
+    "watch:css": "watch \"npm run css:src && npm run css:prefix\" private/scss/ --interval 0.1",
+    "watch:js": "watch \"npm run js\" private/js/ --interval 0.1",
+    "postinstall": "cpy node_modules/normalize.css/normalize.css private/scss/generic --rename _normalize.scss --no-overwrite"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Thomas Baumgartner <tb@arbyte.net>",
+  "license": "ISC",
+  "dependencies": {
+    "bourbon": "latest",
+    "nanoajax": "latest",
+    "normalize.css": "latest",
+    "slim-select": "latest",
+    "susy": "latest"
+  }
+}

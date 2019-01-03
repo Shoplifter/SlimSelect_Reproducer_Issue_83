@@ -1,0 +1,13 @@
+.ss-badge {
+  color: $base-font-color;
+  background-color: #fcc;
+  padding: 0.25em;
+  margin-left: 0.25em;
+  font-style: normal;
+}
+.ss-option .ss-badge {
+  float: right;
+  margin-top: -0.25em;
+  width: 2em;
+  text-align: center;
+}

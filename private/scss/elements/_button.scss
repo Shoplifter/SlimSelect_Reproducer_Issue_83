@@ -1,0 +1,29 @@
+button, .btn {
+  font-family: $base-font-family;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.143;
+  background-color: tint($blue, 0%);
+  border: 2px solid tint($blue, 0%);
+  border-radius: 0.5em;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  margin: 0 0 0 .71429rem;
+  padding: (0.85714em * (16/18)) (1.07143em * (16/18));
+  transition: color $base-duration $base-timing, background-color $base-duration $base-timing, border-color $base-duration $base-timing;
+  &:focus,&:hover,&.active {
+    //background-color: shade($brand-color, 30%);
+    text-decoration: none;
+    outline: none;
+    border-color: shade($blue, 33%);
+    background-color: shade($blue, 33%);
+    color: #fff;
+  }
+  & .prefix {
+    margin-right: 0.4em;
+  }
+}
