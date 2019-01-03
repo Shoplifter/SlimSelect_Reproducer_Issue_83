@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Shoplifter/SlimSelect_Reproducer_Issue_83.git"
   },
   "author": "Thomas Baumgartner <tb@arbyte.net>",
   "license": "ISC",
